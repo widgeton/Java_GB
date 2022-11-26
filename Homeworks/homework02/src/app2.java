@@ -10,7 +10,7 @@ import java.util.Scanner;
 
 public class app2 {
     public static void main(String[] args) {
-        String path = "D:\\Java_GB\\Homeworks\\homework02\\students.json";
+        String path = "D:\\Java_GB\\Homeworks\\homework02\\src\\students.json";
         showStringResults(getArrayDictsFromJson(path));
     }
 
