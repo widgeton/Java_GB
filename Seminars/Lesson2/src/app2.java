@@ -21,8 +21,8 @@ public class app2 {
         ArrayList<String> array = new ArrayList<>();
         try {
             File f1 = new File(path);
-            for (File f : f1.listFiles()) {
-                array.add(f.getName());
+            for (String f : f1.list()) {
+                array.add(f);
             }
             return array;
         } catch (Exception e) {
