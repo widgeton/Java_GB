@@ -34,25 +34,26 @@ public class Shop {
         laptops.add(new Laptop("LEN3319578", "Lenovo", "V15 G2 ITL"));
 
         Random rnd = new Random();
-        for (Laptop nb: laptops) {
+        for (Laptop nb : laptops) {
             nb.setColor(colors[rnd.nextInt(colors.length)]);
             nb.setValueHardDisk(valuesHardDisk[rnd.nextInt(valuesHardDisk.length)]);
             nb.setOrm(orms[rnd.nextInt(orms.length)]);
             nb.setOs(systems[rnd.nextInt(systems.length)]);
         }
 
-        Map<String , ArrayList<String>> choice1 = askUser(laptops);
+        Map<String, ArrayList<String>> choice1 = askUser(laptops);
         System.out.println("********************************************************\n");
         ArrayList<String> choice2 = lastQuestion(choice1);
         System.out.println("********************************************************\n");
 
         System.out.println("Ноутбуки по вашим критериям: ");
-        for (String nb:choice2) {
+        for (String nb : choice2) {
             System.out.println(nb);
         }
 
     }
-    public static Map<String , ArrayList<String>> askUser(Set<Laptop> laptops){
+
+    public static Map<String, ArrayList<String>> askUser(Set<Laptop> laptops) {
         System.out.print("""
                 Введите цифру, соответствующую необходимому критерию:
                 1 - ОЗУ
@@ -63,38 +64,38 @@ public class Shop {
         Scanner sc = new Scanner(System.in);
         String choice = sc.nextLine();
 
-        Map<String , ArrayList<String>> filtered = new HashMap<>();
-        if(choice.equals("1")){
-            for (Laptop nb:laptops) {
+        Map<String, ArrayList<String>> filtered = new HashMap<>();
+        if (choice.equals("1")) {
+            for (Laptop nb : laptops) {
                 String key = nb.getOrm();
-                if(filtered.containsKey(key) && !filtered.get(key).contains(nb.toString())){
+                if (filtered.containsKey(key) && !filtered.get(key).contains(nb.toString())) {
                     filtered.get(key).add(nb.toString());
                 } else {
                     filtered.put(key, new ArrayList<>(List.of(nb.toString())));
                 }
             }
-        } else if (choice.equals("2")){
-            for (Laptop nb:laptops) {
+        } else if (choice.equals("2")) {
+            for (Laptop nb : laptops) {
                 String key = nb.getValueHardDisk();
-                if(filtered.containsKey(key) && !filtered.get(key).contains(nb.toString())){
+                if (filtered.containsKey(key) && !filtered.get(key).contains(nb.toString())) {
                     filtered.get(key).add(nb.toString());
                 } else {
                     filtered.put(key, new ArrayList<>(List.of(nb.toString())));
                 }
             }
-        } else if (choice.equals("3")){
-            for (Laptop nb:laptops) {
+        } else if (choice.equals("3")) {
+            for (Laptop nb : laptops) {
                 String key = nb.getOs();
-                if(filtered.containsKey(key) && !filtered.get(key).contains(nb.toString())){
+                if (filtered.containsKey(key) && !filtered.get(key).contains(nb.toString())) {
                     filtered.get(key).add(nb.toString());
                 } else {
                     filtered.put(key, new ArrayList<>(List.of(nb.toString())));
                 }
             }
-        } else if (choice.equals("4")){
-            for (Laptop nb:laptops) {
+        } else if (choice.equals("4")) {
+            for (Laptop nb : laptops) {
                 String key = nb.getColor();
-                if(filtered.containsKey(key) && !filtered.get(key).contains(nb.toString())){
+                if (filtered.containsKey(key) && !filtered.get(key).contains(nb.toString())) {
                     filtered.get(key).add(nb.toString());
                 } else {
                     filtered.put(key, new ArrayList<>(List.of(nb.toString())));
@@ -105,10 +106,10 @@ public class Shop {
         return filtered;
     }
 
-    public static ArrayList<String> lastQuestion (Map<String , ArrayList<String>> choice){
+    public static ArrayList<String> lastQuestion(Map<String, ArrayList<String>> choice) {
         Scanner sc = new Scanner(System.in);
         System.out.println("Введите нужное значение:");
-        for (String key: choice.keySet()) {
+        for (String key : choice.keySet()) {
             System.out.println(key);
         }
         System.out.print("Ввод: ");
