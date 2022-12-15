@@ -9,12 +9,10 @@ public class Main {
         hotDrinks.add((new HotDrink("кофе", 30.5, 0.25, 67.5)));
         hotDrinks.add((new HotDrink("какао", 27.0, 0.25, 65.0)));
 
-
         HotDrinkVendingMachine hdvm = new HotDrinkVendingMachine(hotDrinks);
+
         hdvm.getProduct("чай");
         hdvm.getProduct("кофе", 0.25, 67.5);
         hdvm.getProduct("молоко");
-
-
     }
 }

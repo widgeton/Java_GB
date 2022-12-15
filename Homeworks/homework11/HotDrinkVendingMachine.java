@@ -1,29 +1,18 @@
 import java.util.List;
+import java.util.stream.Collectors;
 
-public class HotDrinkVendingMachine {
-    private List<HotDrink> hotDrinks;
+public class HotDrinkVendingMachine extends VendingMachine {
 
     public HotDrinkVendingMachine(List<HotDrink> hotDrinks) {
-        this.hotDrinks = hotDrinks;
-    }
-
-    public void getProduct(String name) {
-        for (HotDrink hotDrink : this.hotDrinks) {
-            if(hotDrink.getName().equals(name)){
-                this.hotDrinks.remove(hotDrink);
-                System.out.println("Напиток получен");
-                return;
-            }
-        }
-        System.out.println("Напитка с таким именем нет в автомате");
+        super(hotDrinks.stream().map(i ->(Product)(i)).collect(Collectors.toList())); // преобразование в List<Product>
     }
 
     public void getProduct(String name, double volume, double temperature){
-        for (HotDrink hotDrink : this.hotDrinks) {
+        for (Product hotDrink : this.products) {
             if(hotDrink.getName().equals(name) &&
-                    hotDrink.getVolume() == volume &&
-                    hotDrink.getTemperature() == temperature){
-                this.hotDrinks.remove(hotDrink);
+                    ((HotDrink)(hotDrink)).getVolume() == volume &&
+                    ((HotDrink)(hotDrink)).getTemperature() == temperature){
+                this.products.remove(hotDrink);
                 System.out.printf("Напиток %s с объемом %.2f и температурой %.2f получен\n", name, volume, temperature);
                 return;
             }

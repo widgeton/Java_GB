@@ -1,7 +1,7 @@
 import java.util.List;
 
 public class VendingMachine {
-    private List<Product> products;
+    protected List<Product> products;
 
     public VendingMachine(List<Product> products) {
         this.products = products;
@@ -16,9 +16,5 @@ public class VendingMachine {
             }
         }
         System.out.println("Продукта с таким именем нет в автомате");
-    }
-
-    public List<Product> getProducts() {
-        return products;
     }
 }
