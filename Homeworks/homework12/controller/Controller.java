@@ -2,22 +2,28 @@ package controller;
 
 import data.StudentGroup;
 import data.User;
+import service.DataService;
 import service.StudentGroupService;
 import service.StudentService;
 
-public class Controller {
-    private StudentService ss;
-    private StudentGroupService sgs;
+import java.util.List;
 
-    public Controller() {
-        this.ss = new StudentService();
-        this.sgs = new StudentGroupService();
+public class Controller {
+    private DataService studentService;
+    private StudentGroupService studentGroupService;
+
+    public Controller(DataService studentService, StudentGroupService studentGroupService) {
+        this.studentService = studentService;
+        this.studentGroupService = studentGroupService;
     }
-    public User createStudent(User student){
-        ss.write(student);
-        return ss.read(student);
+
+    public void writeStudent(User student){
+        studentService.write(student);
     }
-    public StudentGroup createGroup(int groupNumber){
-        return sgs.readGroup(groupNumber);
+    public List<User> readUsersFromTxt(String path){
+        return studentService.read(path);
+    }
+    public StudentGroup createGroup(int groupNumber, String path){
+        return studentGroupService.readGroup(groupNumber, path);
     }
 }

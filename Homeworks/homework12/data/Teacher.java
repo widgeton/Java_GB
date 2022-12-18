@@ -1,10 +1,18 @@
 package data;
 
-public class Teacher extends User{
-    private String caf;
+import java.util.List;
 
-    public Teacher(String fio, String bYear, String nPass, String caf) {
-        super(fio, bYear, nPass);
-        this.caf = caf;
+public class Teacher extends User{
+    private String department;
+    private List<Integer> groups;
+
+    public Teacher(String fio, int yearOfBirth, String passportNumber, String department, List<Integer> groups) {
+        super(fio, yearOfBirth, passportNumber);
+        this.department = department;
+        this.groups = groups;
+    }
+
+    public List<Integer> getGroups() {
+        return groups;
     }
 }

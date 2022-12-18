@@ -1,10 +1,14 @@
 package data;
 
 public class Student extends User{
-    private String numGrup;
+    private int groupNumber;
 
-    public Student(String fio, String bYear, String nPass, String numGrup) {
-        super(fio, bYear, nPass);
-        this.numGrup = numGrup;
+    public Student(String fio, int yearOfBirth, String passportNumber, int groupNumber) {
+        super(fio, yearOfBirth, passportNumber);
+        this.groupNumber = groupNumber;
+    }
+
+    public int getGroupNumber() {
+        return groupNumber;
     }
 }

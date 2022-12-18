@@ -2,12 +2,12 @@ package data;
 
 public abstract class User {
     private String fio;
-    private String bYear;
-    private String nPass;
+    private int yearOfBirth;
+    private String passportNumber;
 
-    public User(String fio, String bYear, String nPass) {
+    public User(String fio, int yearOfBirth, String passportNumber) {
         this.fio = fio;
-        this.bYear = bYear;
-        this.nPass = nPass;
+        this.yearOfBirth = yearOfBirth;
+        this.passportNumber = passportNumber;
     }
 }

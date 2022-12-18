@@ -4,6 +4,8 @@ import data.User;
 import util.ReaderFromTxt;
 import util.WriterToTxt;
 
+import java.util.List;
+
 public class StudentService implements DataService{
 
     @Override
@@ -12,7 +14,7 @@ public class StudentService implements DataService{
     }
 
     @Override
-    public User read(User user) {
-        return ReaderFromTxt.read(user);
+    public List<User> read(String path) {
+        return ReaderFromTxt.read(path);
     }
 }

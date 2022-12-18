@@ -7,6 +7,12 @@ public class StudentGroup {
     private List<Student> students;
     private int groupNumber;
 
+    public StudentGroup(Teacher teacher, List<Student> students, int groupNumber) {
+        this.teacher = teacher;
+        this.students = students;
+        this.groupNumber = groupNumber;
+    }
+
     public Teacher getTeacher() {
         return teacher;
     }
