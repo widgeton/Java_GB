@@ -26,4 +26,7 @@ public class Controller {
     public StudentGroup createGroup(int groupNumber, String path){
         return studentGroupService.readGroup(groupNumber, path);
     }
+    public void removeStudent (String fio, StudentGroup studentGroup){
+        studentGroupService.removeStudent(fio, studentGroup);
+    }
 }

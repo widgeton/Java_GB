@@ -10,4 +10,12 @@ public abstract class User {
         this.yearOfBirth = yearOfBirth;
         this.passportNumber = passportNumber;
     }
+
+    public String getFio() {
+        return fio;
+    }
+
+    public int getYearOfBirth() {
+        return yearOfBirth;
+    }
 }
