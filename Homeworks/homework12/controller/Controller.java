@@ -1,8 +1,10 @@
 package controller;
 
+import data.GroupStream;
 import data.StudentGroup;
 import data.User;
 import service.DataService;
+import service.GroupStreamService;
 import service.StudentGroupService;
 import service.StudentService;
 
@@ -11,10 +13,13 @@ import java.util.List;
 public class Controller {
     private DataService studentService;
     private StudentGroupService studentGroupService;
+    private GroupStreamService groupStreamService;
 
-    public Controller(DataService studentService, StudentGroupService studentGroupService) {
+    public Controller(DataService studentService, StudentGroupService studentGroupService,
+                      GroupStreamService groupStreamService) {
         this.studentService = studentService;
         this.studentGroupService = studentGroupService;
+        this.groupStreamService = groupStreamService;
     }
 
     public void writeStudent(User student){
@@ -28,5 +33,8 @@ public class Controller {
     }
     public void removeStudent (String fio, StudentGroup studentGroup){
         studentGroupService.removeStudent(fio, studentGroup);
+    }
+    public void sortGroupStreams(List<GroupStream> groupStreams){
+        groupStreamService.sortGroupStreams(groupStreams);
     }
 }

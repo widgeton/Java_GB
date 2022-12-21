@@ -7,7 +7,6 @@ public class StudentGroup implements Iterable<Student> {
     private Teacher teacher;
     private List<Student> students;
     private int groupNumber;
-    private int cursor;
 
     public StudentGroup(Teacher teacher, List<Student> students, int groupNumber) {
         this.teacher = teacher;
