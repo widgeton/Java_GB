@@ -1,16 +1,24 @@
-package service;
+package service.group;
 
-import data.*;
+import data.comparator.UserComparator;
+import data.group.Group;
+import data.group.StudentGroup;
+import data.user.Student;
+import data.user.Teacher;
+import data.user.User;
+import service.user.DataUserService;
+import service.user.StudentService;
+import service.user.TeacherService;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 
-public class StudentGroupService {
+public class StudentGroupService implements DataGroupService {
     public StudentGroup readGroup(int groupNumber, String path) {
-        DataService studentService = new StudentService();
-        DataService teacherService = new TeacherService();
+        DataUserService studentService = new StudentService();
+        DataUserService teacherService = new TeacherService();
 
         List<User> students = studentService.read(path);
         List<User> teachers = teacherService.read(path);
@@ -42,9 +50,9 @@ public class StudentGroupService {
             }
         }
     }
-
-    public void sortStudents(StudentGroup studentGroup){
-        Collections.sort(studentGroup.getStudents());
+    @Override
+    public void sort(Group studentGroup){
+        Collections.sort(((StudentGroup)(studentGroup)).getStudents());
     }
     public void sortStudentsByFio(StudentGroup studentGroup){
         studentGroup.getStudents().sort(new UserComparator());

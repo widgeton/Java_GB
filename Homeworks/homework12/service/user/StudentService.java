@@ -1,12 +1,13 @@
-package service;
+package service.user;
 
-import data.User;
+import data.user.User;
 import util.ReaderFromTxt;
 import util.WriterToTxt;
 
 import java.util.List;
 
-public class TeacherService implements DataService{
+public class StudentService implements DataUserService {
+
     @Override
     public void write(User user) {
         WriterToTxt.write(user);

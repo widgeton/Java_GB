@@ -1,6 +1,6 @@
 package view;
 
-import data.User;
+import data.user.User;
 
 import java.util.List;
 

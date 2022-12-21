@@ -1,15 +1,15 @@
-package data;
+package data.group;
+
+import data.iterator.GroupStreamIterator;
 
 import java.util.Iterator;
 import java.util.List;
 
-public class GroupStream implements Iterable<StudentGroup>, Comparable<GroupStream> {
+public class GroupStream extends Group implements Iterable<StudentGroup>, Comparable<GroupStream> {
     private List<StudentGroup> groups;
-    private int numberOfGroups;
 
     public GroupStream(List<StudentGroup> groups) {
         this.groups = groups;
-        this.numberOfGroups = groups.size();
     }
 
     public List<StudentGroup> getGroups() {
@@ -23,6 +23,6 @@ public class GroupStream implements Iterable<StudentGroup>, Comparable<GroupStre
 
     @Override
     public int compareTo(GroupStream o) {
-        return Integer.compare(this.numberOfGroups, o.numberOfGroups);
+        return Integer.compare(this.groups.size(), o.groups.size());
     }
 }

@@ -1,9 +1,13 @@
-package data;
+package data.group;
+
+import data.user.Student;
+import data.user.Teacher;
+import data.iterator.StudentGroupIterator;
 
 import java.util.Iterator;
 import java.util.List;
 
-public class StudentGroup implements Iterable<Student> {
+public class StudentGroup extends Group implements Iterable<Student> {
     private Teacher teacher;
     private List<Student> students;
     private int groupNumber;
