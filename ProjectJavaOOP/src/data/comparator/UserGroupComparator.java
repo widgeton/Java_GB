@@ -1,7 +1,6 @@
 package data.comparator;
 
 import data.group.UserGroup;
-import data.user.User;
 
 import java.util.Comparator;
 

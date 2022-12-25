@@ -1,6 +1,5 @@
 package service.user;
 
-import data.user.Student;
 import data.user.Teacher;
 import data.user.User;
 import repository.TeacherRepository;
@@ -29,7 +28,7 @@ public class TeacherService implements DataUserService<Teacher> {
         List<User> users = ReaderFromTxt.read(path);
 
         for (User user : users) {
-            if(user instanceof Teacher){
+            if (user instanceof Teacher) {
                 teachers.add((Teacher) user);
             }
         }

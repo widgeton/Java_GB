@@ -4,7 +4,7 @@ import data.group.StudentGroup;
 import data.user.Student;
 import service.group.StudentGroupService;
 
-public class StudentGroupController implements UserGroupController<StudentGroup, Student>{
+public class StudentGroupController implements UserGroupController<StudentGroup, Student> {
 
     private final StudentGroupService studentGroupService;
 

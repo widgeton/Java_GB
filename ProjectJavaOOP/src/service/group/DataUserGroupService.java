@@ -7,12 +7,11 @@ import data.group.UserGroup;
 import data.user.User;
 import repository.GroupRepository;
 
-public abstract class DataUserGroupService implements DataGroupService {
+public abstract class DataUserGroupService extends DataGroupService {
 
-    private final GroupRepository groupRepository;
 
     public DataUserGroupService(GroupRepository repository) {
-        this.groupRepository = repository;
+        super(repository);
     }
 
     public void removeUser(User student, UserGroup userGroup) {
@@ -28,13 +27,4 @@ public abstract class DataUserGroupService implements DataGroupService {
         ((UserGroup) (userGroup)).getUsers().sort(new UserComparator());
     }
 
-    @Override
-    public void save(Group group) {
-        groupRepository.save(group);
-    }
-
-    @Override
-    public Group findById(int id) {
-        return groupRepository.findById(id);
-    }
 }

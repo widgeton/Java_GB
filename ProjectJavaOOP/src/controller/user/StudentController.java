@@ -1,7 +1,6 @@
 package controller.user;
 
 import data.user.Student;
-import repository.StudentRepository;
 import service.user.StudentService;
 
 import java.util.List;
@@ -9,7 +8,7 @@ import java.util.List;
 public class StudentController implements UserController<Student> {
     private final StudentService studentService;
 
-    public StudentController(StudentService studentService, StudentRepository studentRepository) {
+    public StudentController(StudentService studentService) {
         this.studentService = studentService;
     }
 

@@ -1,15 +1,14 @@
 package controller.user;
 
 import data.user.Teacher;
-import repository.TeacherRepository;
 import service.user.TeacherService;
 
 import java.util.List;
 
-public class TeacherController implements UserController<Teacher>{
+public class TeacherController implements UserController<Teacher> {
     private final TeacherService teacherService;
 
-    public TeacherController(TeacherService teacherService, TeacherRepository teacherRepository) {
+    public TeacherController(TeacherService teacherService) {
         this.teacherService = teacherService;
     }
 

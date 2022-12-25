@@ -2,7 +2,7 @@ package repository;
 
 import data.user.Student;
 
-public class StudentRepository implements UserRepository<Student, Integer>{
+public class StudentRepository implements UserRepository<Student, Integer> {
 
     @Override
     public void save(Student entity) {

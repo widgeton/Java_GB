@@ -1,6 +1,6 @@
 package data.user;
 
-public class Student extends User implements Comparable<Student>{
+public class Student extends User implements Comparable<Student> {
     private int groupNumber;
 
     public Student(String fio, int yearOfBirth, String passportNumber, int groupNumber) {
@@ -14,7 +14,7 @@ public class Student extends User implements Comparable<Student>{
 
     @Override
     public int compareTo(Student student) {
-        if(student.getYearOfBirth() < this.getYearOfBirth()) return 1;
+        if (student.getYearOfBirth() < this.getYearOfBirth()) return 1;
         if (student.getYearOfBirth() > this.getYearOfBirth()) return -1;
         return 0;
     }
