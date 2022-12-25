@@ -22,22 +22,27 @@ public class Controller {
         this.groupStreamService = groupStreamService;
     }
 
-    public void writeStudent(User student){
+    public void writeStudent(User student) {
         studentService.write(student);
     }
-    public List<User> readUsersFromTxt(String path){
+
+    public List<User> readUsersFromTxt(String path) {
         return studentService.read(path);
     }
-    public StudentGroup createGroup(int groupNumber, String path){
+
+    public StudentGroup createGroup(int groupNumber, String path) {
         return studentGroupService.readGroup(groupNumber, path);
     }
-    public void removeStudent (String fio, StudentGroup studentGroup){
+
+    public void removeStudent(String fio, StudentGroup studentGroup) {
         studentGroupService.removeStudent(fio, studentGroup);
     }
-    public void sortStudents (StudentGroup studentGroup){
+
+    public void sortStudents(StudentGroup studentGroup) {
         studentGroupService.sort(studentGroup);
     }
-    public void sortGroupStreams(GroupStream groupStreams){
+
+    public void sortGroupStreams(GroupStream groupStreams) {
         groupStreamService.sort(groupStreams);
     }
 }

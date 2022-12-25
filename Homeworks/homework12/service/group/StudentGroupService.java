@@ -6,9 +6,12 @@ import data.group.StudentGroup;
 import data.user.Student;
 import data.user.Teacher;
 import data.user.User;
+import repository.Repository;
+import repository.StudentRepository;
 import service.user.DataUserService;
 import service.user.StudentService;
 import service.user.TeacherService;
+import util.ReaderFromTxt;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -16,30 +19,16 @@ import java.util.Iterator;
 import java.util.List;
 
 public class StudentGroupService implements DataGroupService {
+    private final Repository<Group, Integer> repository;
+
+    public StudentGroupService(Repository<Group, Integer> repository) {
+        this.repository = repository;
+    }
+
     public StudentGroup readGroup(int groupNumber, String path) {
-        DataUserService studentService = new StudentService();
-        DataUserService teacherService = new TeacherService();
 
-        List<User> students = studentService.read(path);
-        List<User> teachers = teacherService.read(path);
 
-        List<Student> studentsOfGroup = new ArrayList<>();
-        Teacher teacherOfGroup = null;
-
-        for (User student : students) {
-            if (((Student) (student)).getGroupNumber() == groupNumber) {
-                studentsOfGroup.add((Student) student);
-            }
-        }
-
-        for (User teacher : teachers) {
-            if (((Teacher) (teacher)).getGroups().contains(groupNumber)) {
-                teacherOfGroup = (Teacher) (teacher);
-                break;
-            }
-        }
-
-        return new StudentGroup(teacherOfGroup, studentsOfGroup, groupNumber);
+        return null;
     }
 
     public void removeStudent(String fio, StudentGroup studentGroup) {
@@ -50,11 +39,21 @@ public class StudentGroupService implements DataGroupService {
             }
         }
     }
+
     @Override
-    public void sort(Group studentGroup){
-        Collections.sort(((StudentGroup)(studentGroup)).getStudents());
+    public void sort(Group studentGroup) {
+        Collections.sort(((StudentGroup) (studentGroup)).getStudents());
     }
-    public void sortStudentsByFio(StudentGroup studentGroup){
+
+    public void sortStudentsByFio(StudentGroup studentGroup) {
         studentGroup.getStudents().sort(new UserComparator());
+    }
+
+    public void saveGroup(Group studentGroup) {
+        repository.save(studentGroup);
+    }
+
+    public Group findGroupById(Integer id) {
+        return repository.findById(id);
     }
 }

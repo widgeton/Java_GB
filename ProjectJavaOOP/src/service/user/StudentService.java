@@ -4,25 +4,34 @@ import data.user.Student;
 import data.user.User;
 import repository.StudentRepository;
 import util.ReaderFromTxt;
-import util.WriterToTxt;
 
+import java.util.ArrayList;
 import java.util.List;
 
-public class StudentService implements DataUserService {
+public class StudentService implements DataUserService<Student> {
     private final StudentRepository studentRepository;
 
     public StudentService(StudentRepository studentRepository) {
         this.studentRepository = studentRepository;
     }
 
+
     @Override
-    public void write(User user) {
-        WriterToTxt.write(user);
+    public void write(Student user) {
+
     }
 
     @Override
-    public List<User> read(String path) {
-        return ReaderFromTxt.read(path);
+    public List<Student> read(String path) {
+        List<Student> students = new ArrayList<>();
+        List<User> users = ReaderFromTxt.read(path);
+
+        for (User user : users) {
+            if (user instanceof Student) {
+                students.add((Student) user);
+            }
+        }
+        return students;
     }
 
     public void saveStudent(Student entity) {
