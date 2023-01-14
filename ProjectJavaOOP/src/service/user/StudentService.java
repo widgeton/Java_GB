@@ -45,4 +45,8 @@ public class StudentService implements DataUserService<Student> {
     public Student findStudentByFio(String fio) {
         return studentRepository.findByFio(fio);
     }
+
+    public void deleteStudent(Student student){
+
+    }
 }

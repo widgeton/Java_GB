@@ -5,7 +5,7 @@ public abstract class User {
     private int yearOfBirth;
     private String passportNumber;
 
-    public User(String fio, int yearOfBirth, String passportNumber) {
+    public User(String fio, Integer yearOfBirth, String passportNumber) {
         this.fio = fio;
         this.yearOfBirth = yearOfBirth;
         this.passportNumber = passportNumber;
