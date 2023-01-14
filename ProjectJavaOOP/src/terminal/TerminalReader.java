@@ -1,5 +1,7 @@
 package terminal;
 
+import terminal.displayed.ResultDisplayed;
+import terminal.displayed.ResultDisplayedFactory;
 import terminal.executable.CommandExecutable;
 import terminal.executable.CommandExecutableFactory;
 
@@ -27,9 +29,14 @@ public class TerminalReader {
             Scanner scan = new Scanner(System.in);
             String input = scan.nextLine();
             String[] commands = commandParser.parseCommand(input);
+
             CommandExecutableFactory commandExecutableFactory = new CommandExecutableFactory();
             CommandExecutable commandExecutable = commandExecutableFactory.create(commands);
             commandExecutable.execute();
+
+            ResultDisplayedFactory resultDisplayedFactory = new ResultDisplayedFactory(commandExecutable);
+            ResultDisplayed resultDisplayed = resultDisplayedFactory.create(commands[0]);
+            resultDisplayed.display();
         }
     }
 }

@@ -1,5 +1,7 @@
 package terminal;
 
 public interface CommandParser {
-    String[] parseCommand (String inputCommand);
+    default String[] parseCommand(String inputCommand){
+        return null;
+    };
 }
