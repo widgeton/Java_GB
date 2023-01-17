@@ -3,29 +3,17 @@ package terminal.executable;
 import data.user.Student;
 import repository.StudentRepository;
 import service.user.StudentService;
+import terminal.StudentFormer;
+
+import java.util.List;
 
 public class CommandExecutableFactory {
-    public CommandExecutable create(String[] input) {
-        if (input[0].equals("/add")) {
-            return new CreateStudentExecutable(new StudentService(new StudentRepository()), new Student(input[1]));
-        } else if (input[0].equals("/delete")) {
-            if (input.length == 2) {
-                return new DeleteStudentExecutable(new StudentService(new StudentRepository()), new Student(input[1]));
-            } else if (input.length == 3 && isInt(input[1]) && isInt(input[2])) {
-                return new DeleteStudentExecutable(new StudentService(new StudentRepository()),
-                        new Student(Integer.parseInt(input[1]), Integer.parseInt(input[2])));
-            }
-        }
-        return null;
+    public CommandExecutable create(List<String> input) {
+        Student student = new StudentFormer(input).createStudent();
+        if (input.get(0).equals("/add") && student != null) {
+            return new CreateStudentExecutable(new StudentService(new StudentRepository()), student);
+        } else if (input.get(0).equals("/delete") && student != null) {
+            return new DeleteStudentExecutable(new StudentService(new StudentRepository()), student);
+        } else return new NoneCommandExecutable();
     }
-
-    private boolean isInt(String str) {
-        try {
-            Integer.parseInt(str);
-            return true;
-        } catch (NumberFormatException e) {
-            return false;
-        }
-    }
-
 }

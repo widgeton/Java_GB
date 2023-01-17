@@ -1,2 +1,8 @@
-package terminal.executable;public class NoneStudentExecutable {
+package terminal.executable;
+
+public class NoneCommandExecutable implements  CommandExecutable{
+    @Override
+    public void execute() {
+
+    }
 }
