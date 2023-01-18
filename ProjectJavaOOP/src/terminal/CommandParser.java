@@ -5,7 +5,7 @@ import java.util.List;
 
 public interface CommandParser {
 
-    default List<String> parseCommand(String inputCommand){
-        return Arrays.stream(inputCommand.split(" ")).toList();
+    default Command parseCommand(String inputCommand){
+        return new Command(inputCommand);
     };
 }

@@ -9,6 +9,11 @@ public class TeacherRepository implements UserRepository<Teacher, Integer> {
     }
 
     @Override
+    public void delete(Teacher entity) {
+
+    }
+
+    @Override
     public Teacher findById(Integer id) {
         return null;
     }

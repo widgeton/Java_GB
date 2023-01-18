@@ -79,7 +79,7 @@ public class StudentFormer {
         Integer yearOfBirth = formYearOfBirth();
         Integer passNumber = formPassNumber();
         Integer groupNumber = formGroupNumber();
-        if (lengthBefore < commands.size())
+        if (lengthBefore > commands.size())
             return new Student(name, yearOfBirth, passNumber, groupNumber);
         else return null;
     }
