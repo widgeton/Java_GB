@@ -1,7 +1,6 @@
 package terminal;
 
-import terminal.executable.CommandExecutableFactory;
-import terminal.executable.LoggingCommandExecutableFactory;
+import terminal.executable.factorys.CommandExecutableFactory;
 
 import java.util.Scanner;
 
@@ -31,7 +30,7 @@ public class TerminalReader {
             String input = scan.nextLine();
             Command command = commandParser.parseCommand(input);
 
-            commandExecutableFactory.create(command);
+            commandExecutableFactory.create(command).execute();
         }
     }
 }

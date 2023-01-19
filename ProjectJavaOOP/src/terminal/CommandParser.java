@@ -1,11 +1,8 @@
 package terminal;
 
-import java.util.Arrays;
-import java.util.List;
+public class CommandParser {
 
-public interface CommandParser {
-
-    default Command parseCommand(String inputCommand){
+    public Command parseCommand(String inputCommand) {
         return new Command(inputCommand);
-    };
+    }
 }

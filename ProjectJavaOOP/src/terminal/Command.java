@@ -27,6 +27,7 @@ public class Command {
         return commands.get(0).equals(ADD);
     }
 
+
     public boolean isDeleteCommand() {
         return commands.get(0).equals(DELETE);
     }

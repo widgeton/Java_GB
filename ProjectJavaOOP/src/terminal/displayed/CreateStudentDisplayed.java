@@ -1,7 +1,7 @@
 package terminal.displayed;
 
-import terminal.executable.CommandExecutable;
-import terminal.executable.NoneCommandExecutable;
+import terminal.executable.executables.CommandExecutable;
+import terminal.executable.executables.NoneCommandExecutable;
 
 public class CreateStudentDisplayed implements ResultDisplayed {
 

@@ -1,17 +1,17 @@
-package terminal;
+package terminal.executable.formers;
 
-import data.user.Student;
+import data.user.User;
 
 import java.util.List;
 
-public class StudentFormer {
-    private final List<String> commands;
+public abstract class UserFormer {
+    protected final List<String> commands;
 
-    public StudentFormer(List<String> commands) {
+    public UserFormer(List<String> commands) {
         this.commands = commands;
     }
 
-    private boolean isInt(String str) {
+    protected boolean isInt(String str) {
         try {
             Integer.parseInt(str);
             return true;
@@ -21,7 +21,7 @@ public class StudentFormer {
     }
 
 
-    private String formName() {
+    protected String formName() {
         String name = null;
         for (int i = 1; i < commands.size(); i++) {
             if (!isInt(commands.get(i)) && commands.size() - i > 2 &&
@@ -37,7 +37,7 @@ public class StudentFormer {
     }
 
 
-    private Integer formYearOfBirth() {
+    protected Integer formYearOfBirth() {
         Integer yearOfBirth = null;
         for (String i : commands) {
             if (isInt(i) && i.length() == 4) {
@@ -49,7 +49,7 @@ public class StudentFormer {
         return yearOfBirth;
     }
 
-    private Integer formPassNumber() {
+    protected Integer formPassNumber() {
         Integer passNumber = null;
         for (String i : commands) {
             if (isInt(i) && i.length() == 10) {
@@ -61,26 +61,5 @@ public class StudentFormer {
         return passNumber;
     }
 
-    private Integer formGroupNumber() {
-        Integer groupNumber = null;
-        for (String i : commands) {
-            if (isInt(i)) {
-                groupNumber = Integer.parseInt(i);
-                commands.remove(i);
-                break;
-            }
-        }
-        return groupNumber;
-    }
-
-    public Student createStudent() {
-        int lengthBefore = commands.size();
-        String name = formName();
-        Integer yearOfBirth = formYearOfBirth();
-        Integer passNumber = formPassNumber();
-        Integer groupNumber = formGroupNumber();
-        if (lengthBefore > commands.size())
-            return new Student(name, yearOfBirth, passNumber, groupNumber);
-        else return null;
-    }
+    public abstract User createUser();
 }

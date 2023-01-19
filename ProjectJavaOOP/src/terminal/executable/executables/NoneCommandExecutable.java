@@ -1,4 +1,4 @@
-package terminal.executable;
+package terminal.executable.executables;
 
 public class NoneCommandExecutable implements  CommandExecutable{
     @Override
