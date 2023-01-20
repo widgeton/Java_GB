@@ -7,7 +7,9 @@ import terminal.executable.executables.CommandExecutable;
 public class LoggingCommandExecutableFactory extends CommandExecutableFactoryImpl {
     private final ResultDisplayedFactory resultDisplayedFactory;
 
-    public LoggingCommandExecutableFactory(ResultDisplayedFactory resultDisplayedFactory) {
+    public LoggingCommandExecutableFactory(ResultDisplayedFactory resultDisplayedFactory,
+                                           UserFormerFactory userFormerFactory, CommandsFactory commandsFactory) {
+        super(userFormerFactory, commandsFactory);
         this.resultDisplayedFactory = resultDisplayedFactory;
     }
 

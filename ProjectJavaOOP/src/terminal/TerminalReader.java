@@ -1,5 +1,6 @@
 package terminal;
 
+import terminal.executable.executables.CommandExecutable;
 import terminal.executable.factorys.CommandExecutableFactory;
 
 import java.util.Scanner;
@@ -30,7 +31,8 @@ public class TerminalReader {
             String input = scan.nextLine();
             Command command = commandParser.parseCommand(input);
 
-            commandExecutableFactory.create(command).execute();
+            CommandExecutable commandExecutable = commandExecutableFactory.create(command);
+            commandExecutable.execute();
         }
     }
 }

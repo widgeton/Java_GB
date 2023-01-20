@@ -2,7 +2,9 @@ import terminal.CommandParser;
 import terminal.TerminalReader;
 import terminal.displayed.ResultDisplayedFactory;
 import terminal.displayed.StudentMenu;
+import terminal.executable.factorys.CommandsFactory;
 import terminal.executable.factorys.LoggingCommandExecutableFactory;
+import terminal.executable.factorys.UserFormerFactory;
 
 
 public class Main {
@@ -10,6 +12,7 @@ public class Main {
         new StudentMenu().displayMenu();
 
         TerminalReader.getInstance(new CommandParser(),
-                new LoggingCommandExecutableFactory(new ResultDisplayedFactory())).listenToCommands();
+                new LoggingCommandExecutableFactory(new ResultDisplayedFactory(), new UserFormerFactory(),
+                        new CommandsFactory())).listenToCommands();
     }
 }
