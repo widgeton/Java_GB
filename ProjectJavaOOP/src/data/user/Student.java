@@ -1,7 +1,7 @@
 package data.user;
 
 public class Student extends User implements Comparable<Student> {
-    private int groupNumber;
+    private final Integer groupNumber;
 
     public Student(String fio, Integer yearOfBirth, Integer passportNumber, Integer groupNumber) {
         super(fio, yearOfBirth, passportNumber);
@@ -18,5 +18,10 @@ public class Student extends User implements Comparable<Student> {
         if (student.getYearOfBirth() < this.getYearOfBirth()) return 1;
         if (student.getYearOfBirth() > this.getYearOfBirth()) return -1;
         return 0;
+    }
+
+    @Override
+    public String toString()  {
+        return String.format("Student %s", fio);
     }
 }

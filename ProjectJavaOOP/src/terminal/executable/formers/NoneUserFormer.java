@@ -2,10 +2,11 @@ package terminal.executable.formers;
 
 import data.user.User;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class NoneUserFormer extends UserFormer{
-    public NoneUserFormer(List<String> commands) {
+    public NoneUserFormer(ArrayList<String> commands) {
         super(commands);
     }
 

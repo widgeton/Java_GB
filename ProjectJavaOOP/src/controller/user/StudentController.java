@@ -24,16 +24,12 @@ public class StudentController implements UserController<Student> {
 
     @Override
     public void save(Student entity) {
-        studentService.saveStudent(entity);
+        studentService.saveUser(entity);
     }
 
     @Override
-    public Student findById(int id) {
-        return studentService.findStudentById(id);
+    public void delete(Student entity) {
+        studentService.deleteUser(entity);
     }
 
-    @Override
-    public Student findByFio(String fio) {
-        return studentService.findStudentByFio(fio);
-    }
 }

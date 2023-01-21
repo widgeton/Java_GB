@@ -17,10 +17,6 @@ public class StudentGroupController implements UserGroupController<StudentGroup,
         studentGroupService.sort(group);
     }
 
-    @Override
-    public StudentGroup findById(int id) {
-        return (StudentGroup) studentGroupService.findById(id);
-    }
 
     @Override
     public void save(StudentGroup group) {

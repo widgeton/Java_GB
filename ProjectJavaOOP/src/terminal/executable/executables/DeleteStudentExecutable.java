@@ -4,8 +4,8 @@ import data.user.Student;
 import service.user.StudentService;
 
 public class DeleteStudentExecutable implements CommandExecutable {
-    private StudentService studentService;
-    private Student student;
+    private final StudentService studentService;
+    private final Student student;
 
     public DeleteStudentExecutable(StudentService studentService, Student student) {
         this.studentService = studentService;
@@ -14,6 +14,7 @@ public class DeleteStudentExecutable implements CommandExecutable {
 
     @Override
     public void execute() {
-        studentService.deleteStudent(student);
+        studentService.deleteUser(student);
+        System.out.println(studentService.getUsersList());
     }
 }

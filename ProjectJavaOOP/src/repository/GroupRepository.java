@@ -2,7 +2,7 @@ package repository;
 
 import data.group.Group;
 
-public class GroupRepository implements Repository<Group, Integer> {
+public class GroupRepository implements Repository<Group> {
 
     @Override
     public void save(Group entity) {
@@ -14,8 +14,4 @@ public class GroupRepository implements Repository<Group, Integer> {
 
     }
 
-    @Override
-    public Group findById(Integer id) {
-        return null;
-    }
 }

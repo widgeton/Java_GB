@@ -2,7 +2,7 @@ package repository;
 
 import data.user.Teacher;
 
-public class TeacherRepository implements UserRepository<Teacher, Integer> {
+public class TeacherRepository implements Repository<Teacher> {
     @Override
     public void save(Teacher entity) {
 
@@ -13,13 +13,4 @@ public class TeacherRepository implements UserRepository<Teacher, Integer> {
 
     }
 
-    @Override
-    public Teacher findById(Integer id) {
-        return null;
-    }
-
-    @Override
-    public Teacher findByFio(String fio) {
-        return null;
-    }
 }

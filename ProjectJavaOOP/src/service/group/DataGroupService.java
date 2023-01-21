@@ -17,7 +17,5 @@ public abstract class DataGroupService {
         groupRepository.save(group);
     }
 
-    public Group findById(int id) {
-        return groupRepository.findById(id);
-    }
+
 }

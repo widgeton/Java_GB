@@ -2,12 +2,12 @@ package terminal.executable.formers;
 
 import data.user.User;
 
-import java.util.List;
+import java.util.ArrayList;
 
 public abstract class UserFormer {
-    protected final List<String> commands;
+    protected ArrayList<String> commands;
 
-    public UserFormer(List<String> commands) {
+    protected UserFormer(ArrayList<String> commands) {
         this.commands = commands;
     }
 
@@ -27,9 +27,7 @@ public abstract class UserFormer {
             if (!isInt(commands.get(i)) && commands.size() - i > 2 &&
                     !isInt(commands.get(i + 1)) && !isInt(commands.get(i + 2))) {
                 name = String.join(" ", commands.get(i), commands.get(i + 1), commands.get(i + 2));
-                commands.remove(commands.get(i));
-                commands.remove(commands.get(i + 1));
-                commands.remove(commands.get(i + 2));
+                commands.remove(i);
                 break;
             }
         }

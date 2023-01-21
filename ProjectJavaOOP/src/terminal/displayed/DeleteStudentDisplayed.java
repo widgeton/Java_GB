@@ -14,9 +14,9 @@ public class DeleteStudentDisplayed implements ResultDisplayed {
     @Override
     public void display() {
         if (commandExecutable instanceof NoneCommandExecutable) {
-            System.out.println("Неверный ввод. Студент не был удален");
+            System.out.println("Неверный ввод. Студент не был удален\n");
         } else {
-            System.out.println("Студент успешно удален");
+            System.out.println("Студент успешно удален\n");
         }
     }
 

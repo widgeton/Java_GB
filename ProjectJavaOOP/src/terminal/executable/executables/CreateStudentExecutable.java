@@ -5,8 +5,8 @@ import service.user.StudentService;
 
 public class CreateStudentExecutable implements CommandExecutable{
 
-    private StudentService studentService;
-    private Student student;
+    private final StudentService studentService;
+    private final Student student;
 
     public CreateStudentExecutable(StudentService studentService, Student student) {
         this.studentService = studentService;
@@ -15,6 +15,7 @@ public class CreateStudentExecutable implements CommandExecutable{
 
     @Override
     public void execute() {
-        studentService.saveStudent(student);
+        studentService.saveUser(student);
+        System.out.println(studentService.getUsersList());
     }
 }

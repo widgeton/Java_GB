@@ -14,11 +14,7 @@ public class GroupStreamController implements GroupController<GroupStream> {
     public void sort(GroupStream group) {
         groupStreamService.sort(group);
     }
-
-    @Override
-    public GroupStream findById(int id) {
-        return (GroupStream) groupStreamService.findById(id);
-    }
+    
 
     @Override
     public void save(GroupStream group) {

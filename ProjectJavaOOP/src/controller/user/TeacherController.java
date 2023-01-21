@@ -24,16 +24,12 @@ public class TeacherController implements UserController<Teacher> {
 
     @Override
     public void save(Teacher entity) {
-        teacherService.saveTeacher(entity);
+        teacherService.saveUser(entity);
     }
 
     @Override
-    public Teacher findById(int id) {
-        return teacherService.findTeacherById(id);
+    public void delete(Teacher entity) {
+        teacherService.deleteUser(entity);
     }
 
-    @Override
-    public Teacher findByFio(String fio) {
-        return teacherService.findStudentByFio(fio);
-    }
 }

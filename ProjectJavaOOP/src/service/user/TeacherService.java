@@ -35,15 +35,15 @@ public class TeacherService implements DataUserService<Teacher> {
         return teachers;
     }
 
-    public void saveTeacher(Teacher entity) {
-        teacherRepository.save(entity);
+    @Override
+    public void saveUser(Teacher user) {
+
     }
 
-    public Teacher findTeacherById(int id) {
-        return teacherRepository.findById(id);
+    @Override
+    public void deleteUser(Teacher user) {
+
     }
 
-    public Teacher findStudentByFio(String fio) {
-        return teacherRepository.findByFio(fio);
-    }
+
 }

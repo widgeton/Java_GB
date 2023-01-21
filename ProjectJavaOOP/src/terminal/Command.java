@@ -1,5 +1,6 @@
 package terminal;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -8,15 +9,15 @@ public class Command {
     private static final String DELETE = "/delete";
     private static final String STUDENT = "/student";
 
-    private final List<String> commands;
+    private final ArrayList<String> commands;
     private final String mainCommand;
 
-    public Command(String input) {
-        this.commands = Arrays.stream(input.split(" ")).toList();
+    public Command(ArrayList<String> commands) {
+        this.commands = commands;
         this.mainCommand = commands.get(0);
     }
 
-    public List<String> getCommands() {
+    public ArrayList<String> getCommands() {
         return commands;
     }
 
@@ -32,8 +33,9 @@ public class Command {
     public boolean isDeleteCommand() {
         return commands.get(0).equals(DELETE);
     }
+
     public boolean isStudentCommand() {
-        return commands.get(1).equals(STUDENT);
+        return commands.size() > 1 && commands.get(1).equals(STUDENT);
     }
 
     @Override

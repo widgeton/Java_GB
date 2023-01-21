@@ -11,8 +11,8 @@ import java.util.List;
 public class StudentService implements DataUserService<Student> {
     private final StudentRepository studentRepository;
 
-    public StudentService(StudentRepository studentRepository) {
-        this.studentRepository = studentRepository;
+    public StudentService() {
+        this.studentRepository = new StudentRepository();
     }
 
 
@@ -34,19 +34,18 @@ public class StudentService implements DataUserService<Student> {
         return students;
     }
 
-    public void saveStudent(Student entity) {
-        studentRepository.save(entity);
+    @Override
+    public void saveUser(Student user) {
+        studentRepository.save(user);
     }
 
-    public Student findStudentById(int id) {
-        return studentRepository.findById(id);
+    @Override
+    public void deleteUser(Student user) {
+        studentRepository.delete(user);
+    }
+    public ArrayList<Student> getUsersList(){
+        return studentRepository.getUsersList();
     }
 
-    public Student findStudentByFio(String fio) {
-        return studentRepository.findByFio(fio);
-    }
 
-    public void deleteStudent(Student student) {
-        studentRepository.delete(student);
-    }
 }

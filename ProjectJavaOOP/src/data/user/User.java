@@ -1,11 +1,11 @@
 package data.user;
 
 public abstract class User {
-    private String fio;
-    private int yearOfBirth;
-    private int passportNumber;
+    protected final String fio;
+    protected final Integer yearOfBirth;
+    protected final Integer passportNumber;
 
-    public User(String fio, Integer yearOfBirth, Integer passportNumber) {
+    protected User(String fio, Integer yearOfBirth, Integer passportNumber) {
         this.fio = fio;
         this.yearOfBirth = yearOfBirth;
         this.passportNumber = passportNumber;
@@ -18,4 +18,11 @@ public abstract class User {
     public int getYearOfBirth() {
         return yearOfBirth;
     }
+
+    public int getPassportNumber() {
+        return passportNumber;
+    }
+
+    @Override
+    public abstract String toString();
 }

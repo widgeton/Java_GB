@@ -2,11 +2,12 @@ package terminal.executable.formers;
 
 import data.user.Student;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class StudentFormer extends UserFormer{
 
-    public StudentFormer(List<String> commands) {
+    public StudentFormer(ArrayList<String> commands) {
         super(commands);
     }
 

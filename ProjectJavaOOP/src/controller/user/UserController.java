@@ -11,7 +11,6 @@ public interface UserController<E extends User> {
 
     void save(E entity);
 
-    E findById(int id);
+    void delete(E entity);
 
-    E findByFio(String fio);
 }

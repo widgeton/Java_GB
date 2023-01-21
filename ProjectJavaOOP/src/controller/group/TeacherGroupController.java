@@ -16,10 +16,6 @@ public class TeacherGroupController implements UserGroupController<TeacherGroup,
         teacherGroupService.sort(group);
     }
 
-    @Override
-    public TeacherGroup findById(int id) {
-        return (TeacherGroup) teacherGroupService.findById(id);
-    }
 
     @Override
     public void save(TeacherGroup group) {

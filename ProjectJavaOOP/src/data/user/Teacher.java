@@ -15,4 +15,9 @@ public class Teacher extends User {
     public List<Integer> getGroups() {
         return groups;
     }
+
+    @Override
+    public String toString()  {
+        return String.format("Teacher %s", fio);
+    }
 }

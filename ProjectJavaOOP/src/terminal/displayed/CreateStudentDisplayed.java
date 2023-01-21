@@ -14,9 +14,9 @@ public class CreateStudentDisplayed implements ResultDisplayed {
     @Override
     public void display() {
         if (commandExecutable instanceof NoneCommandExecutable) {
-            System.out.println("Неверный ввод. Студент не был создан");
+            System.out.println("Неверный ввод. Студент не был создан\n");
         } else {
-            System.out.println("Студент успешно создан");
+            System.out.println("Студент успешно создан\n");
         }
     }
 
